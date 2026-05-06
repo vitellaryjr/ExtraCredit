@@ -221,6 +221,9 @@ function ease_dollars(mod, x)
     end
 end
 
+SMODS.Attribute{key = 'consumeable_slot', alias = {'consumable_slot'}}
+SMODS.Attribute{key = 'debuff'}
+
 -- Page 1 Jokers
 if ECconfig.wave1 then
 SMODS.Joker{ --Forklift
@@ -237,6 +240,7 @@ SMODS.Joker{ --Forklift
             [1] = '{C:attention}+#1#{} Consumable Slots'
         }
     },
+    attributes = {'consumeable_slot', 'passive'},
     pos = {
         x = 0,
         y = 0
@@ -279,6 +283,7 @@ SMODS.Joker{ --Double Rainbow
             [1] = '{C:attention}Retrigger{} all {C:attention}Lucky Cards{}'
         }
     },
+    attributes = {'retrigger', 'enhancements'},
     pos = {
         x = 1,
         y = 0
@@ -336,6 +341,7 @@ SMODS.Joker{ --Starfruit
             [4] = '{C:inactive}({}{C:attention}#1#{}{C:inactive} rounds remaining)'
         }
     },
+    attributes = {'hand_type', 'chance', 'food'},
     pos = {
         x = 2,
         y = 0
@@ -407,6 +413,7 @@ SMODS.Joker{ --Eclipse
             [3] = '{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)'
         }
     },
+    attributes = {'chips', 'scaling', 'hand_type', 'space'},
     pos = {
         x = 3,
         y = 0
@@ -458,6 +465,7 @@ SMODS.Joker{ --Rubber Ducky
             [3] = '{C:inactive}(Currently {C:chips}+#1# {}{C:inactive}Chips)'
         }
     },
+    attributes = {'chips', 'scaling', 'modify_card', 'perma_bonus'},
     pos = {
         x = 4,
         y = 0
@@ -533,6 +541,7 @@ SMODS.Joker{ --Pocket Aces
             [4] = '{C:inactive}(Resets each{} {C:attention}Ante{}{C:inactive})'
         }
     },
+    attributes = {'economy', 'rank', 'ace'},
     pos = {
         x = 5,
         y = 0
@@ -585,6 +594,7 @@ SMODS.Joker{ --Warlock
             [4] = '{C:inactive}(Must have room)'
         }
     },
+    attributes = {'generation', 'spectral', 'destroy_card', 'enhancements', 'chance'},
     pos = {
         x = 6,
         y = 0
@@ -659,6 +669,7 @@ SMODS.Joker{ --Purple Joker
             [4] = '{C:inactive}(Currently {}{C:purple}+#1# {C:inactive}Mult and Chips)'
         }
     },
+    attributes = {'chips', 'mult', 'scaling', 'hands', 'discard'},
     pos = {
         x = 7,
         y = 0
@@ -718,6 +729,7 @@ SMODS.Joker{ --Compost
             [4] = '{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult and {C:attention}#3#{}{C:inactive}/3)'
         }
     },
+    attributes = {'mult', 'scaling', 'discard'},
     pos = {
         x = 8,
         y = 0
@@ -804,6 +816,7 @@ SMODS.Joker{ --Candy Necklace
             [3] = '{C:inactive}({}{C:attention}#1#{}{C:inactive} remaining)'
         }
     },
+    attributes = {'generation', 'tag', 'food'},
     pos = {
         x = 9,
         y = 0
@@ -883,6 +896,7 @@ SMODS.Joker{ --Yellow Card
             [2] = '{C:attention}Booster Pack{} is skipped'
         }
     },
+    attributes = {'economy'},
     pos = {
         x = 0,
         y = 1
@@ -924,6 +938,7 @@ SMODS.Joker{ --Turtle
             [3] = "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)"
         }
     },
+    attributes = {'xmult', 'scaling'},
     pos = {
         x = 1,
         y = 1
@@ -974,6 +989,7 @@ SMODS.Joker{ --Clown College
             [4] = "{C:inactive}(Must have room)",
         }
     },
+    attributes = {'generation', 'tarot', 'boss_blind'},
     pos = {
         x = 4,
         y = 1
@@ -1032,6 +1048,7 @@ SMODS.Joker{ --Handbook
             [4] = "{C:inactive}(Currently {C:blue}+#2#{C:inactive} Chips)"
         }
     },
+    attributes = {'chips', 'scaling', 'hand_type'},
     pos = {
         x = 3,
         y = 1
@@ -1086,6 +1103,7 @@ SMODS.Joker{ --Ten Gallon
             [3] = "{C:inactive}(Currently {X:mult,C:white}X#3#{C:inactive} Mult)"
         }
     },
+    attributes = {'xmult'},
     pos = {
         x = 2,
         y = 1
@@ -1136,6 +1154,7 @@ SMODS.Joker{ --Monte Haul
 
         }
     },
+    attributes = {'generation', 'tag', 'on_sell'},
     pos = {
         x = 5,
         y = 1
@@ -1202,6 +1221,7 @@ SMODS.Joker{ --Espresso
             [3] = 'Reduces by {C:money}$#2#{} after each round'
         }
     },
+    attributes = {'economy', 'skip', 'food'},
     pos = {
         x = 6,
         y = 1
@@ -1301,6 +1321,7 @@ SMODS.Joker{ --Traffic Light
             [4] = 'Resets after {X:mult,C:white}X0.5{}'
         }
     },
+    attributes = {'xmult', 'reset'},
     pos = {
         x = 7,
         y = 1
@@ -1368,6 +1389,7 @@ SMODS.Joker{ --Hold Your Breath
             [4] = '{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)'
         }
     },
+    attributes = {'chips', 'scaling', 'reset', 'discard'},
     pos = {
         x = 8,
         y = 1
@@ -1448,6 +1470,7 @@ SMODS.Joker{ --Ouppy Bog
             [4] = '{C:inactive}(Currently {C:mult}+#1# {C:inactive}Mult)'
         }
     },
+    attributes = {'mult', 'scaling', 'destroy_card'},
     pos = {
         x = 0,
         y = 2
@@ -1512,6 +1535,7 @@ SMODS.Joker{ --Werewolf
             [2] = '{C:attention}enhanced{} become {C:attention}Wild Cards'
         }
     },
+    attributes = {'enhancements'},
     pos = {
         x = 1,
         y = 2
@@ -1568,6 +1592,7 @@ SMODS.Joker{ --Permanent Marker
             [2] = 'can\'t be debuffed'
         }
     },
+    attributes = {'enhancements', 'debuff'},
     pos = {
         x = 2,
         y = 2
@@ -1598,6 +1623,7 @@ SMODS.Joker{ --Prideful Joker
             [2] = '{C:mult}+#1#{} Mult when scored'
         }
     },
+    attributes = {'mult', 'enhancements'},
     pos = {
         x = 3,
         y = 2
@@ -1642,6 +1668,7 @@ SMODS.Joker{ --Tuxedo
             [3] = "{s:0.8}suit changes at end of round"
         }
     },
+    attributes = {'retrigger', 'suit'},
     pos = {
         x = 4,
         y = 2
@@ -1698,6 +1725,7 @@ SMODS.Joker{ --Farmer
             [4] = "{s:0.8}suit changes at end of round"
         }
     },
+    attributes = {'economy', 'suit'},
     pos = {
         x = 9,
         y = 1
@@ -1745,6 +1773,7 @@ SMODS.Joker{ --Ambrosia
             [5] = '{C:inactive}(Must have room)'
         }
     },
+    attributes = {'generation', 'spectral', 'skip'},
     pos = {
         x = 5,
         y = 2
@@ -1821,6 +1850,7 @@ SMODS.Joker{ --Clown Car
             [2] = '{C:attention}before{} cards are scored'
         }
     },
+    attributes = {'mult'},
     pos = {
         x = 6,
         y = 2
@@ -1868,6 +1898,7 @@ SMODS.Joker{ --Ship of Theseus
             [4] = '{C:inactive}(Currently {X:mult,C:white}X#1#{C:inactive} Mult)'
         }
     },
+    attributes = {'xmult', 'scaling', 'generation'},
     pos = {
         x = 7,
         y = 2
@@ -1976,6 +2007,7 @@ SMODS.Joker{ --Accretion Disk
             [4] = '{C:inactive}(Currently {C:attention}#1#{C:inactive}/#2#)'
         }
     },
+    attributes = {'hand_type', 'planet', 'space'},
     pos = {
         x = 8,
         y = 2
@@ -2036,6 +2068,7 @@ SMODS.Joker{ --Go Fish
             [4] = '{s:0.8}rank changes at end of round'
         }
     },
+    attributes = {'destroy_card', 'hands', 'rank'},
     pos = {
         x = 9,
         y = 2
@@ -2101,6 +2134,7 @@ SMODS.Joker{ --Plushie
             [3] = "{C:inactive}(Currently {C:blue}+#2#{C:inactive} Chips)",
         }
     },
+    attributes = {'chips', 'joker'},
     pos = {
         x = 6,
         y = 3
@@ -2143,6 +2177,7 @@ SMODS.Joker{ --Pyromancer
             [3] = "than or equal to {C:attention}Discards",
         }
     },
+    attributes = {'mult', 'hands'},
     pos = {
         x = 1,
         y = 3
@@ -2187,6 +2222,7 @@ SMODS.Joker{ --Bobby
             
         }
     },
+    attributes = {'hands', 'discard'},
     pos = {
         x = 0,
         y = 3
@@ -2245,6 +2281,7 @@ SMODS.Joker{ --Yin Yang
             [4] = "to remaining {C:attention}Discards"
         }
     },
+    attributes = {'generation', 'tarot', 'planet', 'hands', 'discard'},
     pos = {
         x = 4,
         y = 3
@@ -2317,6 +2354,7 @@ SMODS.Joker{ --Blackjack
             [3] = "{C:attention}card{} and nonscoring {C:attention}Ace{}",
         }
     },
+    attributes = {'mult'},
     pos = {
         x = 1,
         y = 4
@@ -2380,6 +2418,7 @@ SMODS.Joker{ --JotY
             [3] = "{C:attention}retrigger{} played cards"
         }
     },
+    attributes = {'retrigger', 'hand_type'},
     pos = {
         x = 5,
         y = 3
@@ -2423,6 +2462,7 @@ SMODS.Joker{ --Average Alice
             [3] = "{C:attention}Odd{} and {C:attention}Even{} card",
         }
     },
+    attributes = {'xmult', 'rank'},
     pos = {
         x = 2,
         y = 4
@@ -2478,6 +2518,7 @@ SMODS.Joker{ --Coupon Sheet
             [3] = "after {C:attention}Boss Blind{} is defeated"
         }
     },
+    attributes = {'generation', 'tag', 'boss_blind', 'economy'},
     pos = {
         x = 8,
         y = 3
@@ -2534,6 +2575,7 @@ SMODS.Joker{ --Hoarder
             [2] = "whenever {C:money}money{} is earned"
         }
     },
+    attributes = {'sell_value', 'scaling', 'economy'},
     pos = {
         x = 9,
         y = 3
@@ -2586,6 +2628,7 @@ SMODS.Joker{ --Chain Lightning
             [4] = '{C:inactive}(Resets each hand)'
         }
     },
+    attributes = {'xmult', 'scaling', 'reset', 'enhancements'},
     pos = {
         x = 2,
         y = 3
@@ -2651,6 +2694,7 @@ SMODS.Joker{ --Joka Lisa
             [4] = '{C:inactive}(Currently {X:mult,C:white}X#1#{C:inactive})'
         }
     },
+    attributes = {'xmult', 'scaling', 'enhancements'},
     pos = {
         x = 3,
         y = 3
@@ -2716,6 +2760,7 @@ SMODS.Joker{ --Bad Apple
             [4] = "destroyed at end of round"
         }
     },
+    attributes = {'chips', 'destroy_card', 'chance'},
     pos = {
         x = 0,
         y = 4
@@ -2796,6 +2841,7 @@ SMODS.Joker{ --Passport
             [4] = "{C:inactive}(Currently {C:attention}#1#{C:inactive} remaining)"
         }
     },
+    attributes = {'discard', 'seals'},
     pos = {
         x = 3,
         y = 4
@@ -2853,6 +2899,7 @@ SMODS.Joker{ --Lucky 7
             [3] = "cards count as {C:attention}Lucky Cards"
         }
     },
+    attributes = {'enhancements', 'rank', 'seven'},
     pos = { 
         x = 7,
         y = 3
@@ -2899,6 +2946,7 @@ SMODS.Joker{ --Alloy
             [4] = "considered {C:attention}Gold Cards{}"
         }
     },
+    attributes = {'enhancements'},
     pos = { 
         x = 4,
         y = 4
