@@ -1396,7 +1396,7 @@ SMODS.Joker{ --Ouppy Bog
     end,
 
     calculate = function(self, card, context)
-        if context.joker_main and card.ability.extra.mult > 1 then
+        if context.joker_main then
             return{
                 mult = card.ability.extra.mult
             }
@@ -1816,7 +1816,7 @@ SMODS.Joker{ --Ship of Theseus
                 end
             end
         end
-        if context.joker_main and card.ability.extra.Xmult > 1 then
+        if context.joker_main then
             return {
                 xmult = card.ability.extra.Xmult
             }
@@ -2553,7 +2553,7 @@ SMODS.Joker{ --Joka Lisa
                 return nil, true
             end
 
-        elseif context.joker_main and card.ability.extra.Xmult > 1 then
+        elseif context.joker_main then
             return {
                 xmult = card.ability.extra.Xmult
             }
