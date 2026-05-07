@@ -301,7 +301,7 @@ SMODS.Joker{ --Double Rainbow
     end,
 
     calculate = function(self, card, context)
-        if context.repetition and (context.cardarea == G.play or context.cardarea == G.hand) and SMODS.has_enhancement(context.other_card, "m_lucky") then
+        if context.repetition and SMODS.has_enhancement(context.other_card, "m_lucky") then
             return {
                 repetitions = 1
             }
@@ -1590,7 +1590,7 @@ SMODS.Joker{ --Tuxedo
     calculate = function(self, card, context)
 
 
-        if context.repetition and (context.cardarea == G.play or context.cardarea == G.hand) and context.other_card:is_suit(G.GAME.current_round.tuxedo_card.suit) then
+        if context.repetition and context.other_card:is_suit(G.GAME.current_round.tuxedo_card.suit) then
             return {
                 repetitions = 1
             }
@@ -2126,7 +2126,7 @@ SMODS.Joker{ --Yin Yang
     end,
 
     calculate = function(self, card, context)
-        if context.end_of_round and not context.repetition and not context.individual and not context.blueprint then
+        if context.end_of_round and context.main_eval and not context.blueprint then
             if G.GAME.current_round.hands_left == G.GAME.current_round.discards_left then
                 if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
                     G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
@@ -2601,7 +2601,7 @@ SMODS.Joker{ --Bad Apple
             return {
                 chips = card.ability.extra.chips
             }
-        elseif context.end_of_round and not context.repetition and not context.individual and not context.blueprint then
+        elseif context.end_of_round and context.main_eval and not context.blueprint then
             if SMODS.pseudorandom_probability(card, 'apple', 1, card.ability.extra.odds) then
                 local destructable_jokers = {}
                 local index = 0
@@ -2863,11 +2863,9 @@ SMODS.Back{ --Echo Deck
   end,
 
   calculate = function(self, back, context)
-    if context.repetition and (context.cardarea == G.play or context.cardarea == G.hand) then
+    if context.repetition then
         return {
-            message = localize('k_again_ex'),
-            repetitions = 1,
-            card = card
+            repetitions = 1
         }
     end
     
