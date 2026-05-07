@@ -213,13 +213,6 @@ local function eclipse_sum_levels()
     end
     return total_levels, total_hands
 end
-local ed = ease_dollars
-function ease_dollars(mod, x)
-    ed(mod, x)
-    for i = 1, #G.jokers.cards do
-	eval_card(G.jokers.cards[i], { EC_ease_dollars = to_big(mod)})
-    end
-end
 
 SMODS.Attribute{key = 'consumeable_slot', alias = {'consumable_slot'}}
 SMODS.Attribute{key = 'debuff'}
